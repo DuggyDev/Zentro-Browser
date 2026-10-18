@@ -1,0 +1,1 @@
+{ "name": "zentro-server", "version": "1.0.0", "private": true, "description": "Premium + VPN list server for Zentro Browser", "main": "server.js", "scripts": { "start": "node server.js" }, "engines": { "node": ">=18" } }

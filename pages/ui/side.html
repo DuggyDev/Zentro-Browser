@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src zentro:; style-src zentro:; img-src zentro: https: http: data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Zentro sidebar</title>
+  <link rel="stylesheet" href="zentro://assets/base.css">
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="side">
+  <div class="side-wrap" id="wrap">
+    <nav class="rail" id="rail" aria-label="Sidebar"></nav>
+    <section class="vtabs" id="vtabs" aria-label="Tabs">
+      <div class="vtabs-head"><span>Tabs</span><button class="tbtn" id="vnew" type="button" title="New tab (Ctrl+T)" aria-label="New tab"></button></div>
+      <div class="vtabs-list" id="vlist"></div>
+    </section>
+  </div>
+  <script src="zentro://assets/common.js"></script>
+  <script src="tabs.js"></script>
+  <script src="side.js"></script>
+</body>
+</html>

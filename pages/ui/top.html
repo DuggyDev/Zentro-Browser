@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src zentro:; style-src zentro:; img-src zentro: https: http: data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Zentro</title>
+  <link rel="stylesheet" href="zentro://assets/base.css">
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="top">
+  <div class="chrome" id="chrome">
+    <div class="strip" id="strip">
+      <div class="tabs" id="tabs"></div>
+      <button class="tbtn new-tab" id="new-tab" type="button" title="New tab (Ctrl+T)" aria-label="New tab"></button>
+    </div>
+    <div class="toolbar">
+      <button class="tbtn" id="back" type="button" title="Back (Alt+Left)" aria-label="Back"></button>
+      <button class="tbtn" id="forward" type="button" title="Forward (Alt+Right)" aria-label="Forward"></button>
+      <button class="tbtn" id="reload" type="button" title="Reload (Ctrl+R)" aria-label="Reload"></button>
+      <button class="tbtn" id="home" type="button" title="Home (Alt+Home)" aria-label="Home"></button>
+      <div class="omni" id="omni">
+        <button class="tbtn" id="sec" type="button" aria-label="Connection status"></button>
+        <input id="address" type="text" spellcheck="false" autocomplete="off" placeholder="Search or enter address" aria-label="Address and search bar">
+        <span class="zoom-chip" id="zoom-chip" hidden></span>
+        <button class="tbtn" id="shield-btn" type="button" title="Zentro Shield" aria-label="Zentro Shield"><span class="shield-count" id="shield-count" hidden></span></button>
+        <button class="tbtn" id="star" type="button" title="Bookmark this page (Ctrl+D)" aria-label="Bookmark this page"></button>
+      </div>
+      <span class="private-badge" id="private-badge" hidden></span>
+      <button class="tbtn" id="dl-btn" type="button" title="Downloads (Ctrl+J)" aria-label="Downloads"><span class="badge" id="dl-badge" hidden></span><span class="dl-progress" id="dl-progress" hidden><i id="dl-fill"></i></span></button>
+      <button class="tbtn" id="ext-btn" type="button" title="Extensions" aria-label="Extensions"></button>
+      <button class="tbtn" id="ai-btn" type="button" title="AI assistant (Ctrl+Shift+A)" aria-label="AI assistant"></button>
+      <button class="tbtn" id="school-btn" type="button" title="School Mode" aria-label="School Mode"></button>
+      <button class="tbtn me" id="me-btn" type="button" title="Account" aria-label="Account and profile picture"></button>
+      <button class="tbtn" id="menu-btn" type="button" title="Menu" aria-label="Menu"></button>
+    </div>
+  </div>
+
+  <div class="bars" id="bars">
+    <div class="bar-card" id="find-bar" hidden>
+      <input type="text" id="find-input" placeholder="Find in page" aria-label="Find in page" spellcheck="false">
+      <span class="count" id="find-count"></span>
+      <button class="tbtn" id="find-prev" type="button" title="Previous (Shift+Enter)" aria-label="Previous match"></button>
+      <button class="tbtn" id="find-next" type="button" title="Next (Enter)" aria-label="Next match"></button>
+      <label><input type="checkbox" id="find-case"> Match case</label>
+      <button class="tbtn" id="find-close" type="button" title="Close (Esc)" aria-label="Close find"></button>
+    </div>
+    <div class="bar-card" id="prompt-bar" hidden>
+      <span class="prompt-text" id="prompt-text"></span>
+      <label><input type="checkbox" id="prompt-remember" checked> Remember</label>
+      <button class="btn" id="prompt-block" type="button">Block</button>
+      <button class="btn btn-primary" id="prompt-allow" type="button">Allow</button>
+    </div>
+    <div class="bar-card toast-bar" id="toast-bar" hidden></div>
+  </div>
+
+  <div class="suggest" id="suggest" hidden role="listbox"></div>
+  <div class="backdrop" id="backdrop" hidden></div>
+  <div class="panel" id="panel" hidden></div>
+
+  <script src="zentro://assets/common.js"></script>
+  <script src="tabs.js"></script>
+  <script src="top.js"></script>
+</body>
+</html>
