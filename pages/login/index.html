@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src zentro:; style-src zentro:; img-src zentro: data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Sign in - Zentro</title>
+  <link rel="stylesheet" href="zentro://assets/base.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <main class="box">
+    <img src="zentro://assets/logo.png" alt="" width="84" height="84">
+    <h1>Welcome to Zentro</h1>
+    <p class="lead" id="lead">Sign in to use Zentro Premium on every device.</p>
+
+    <button class="btn google" id="google" type="button"><span class="g">G</span><span>Continue with Google</span></button>
+    <div class="or" id="or"><span>or use your email</span></div>
+
+    <div class="tabs" role="tablist">
+      <button type="button" id="tab-in" role="tab" aria-selected="true">Sign in</button>
+      <button type="button" id="tab-up" role="tab" aria-selected="false">Create account</button>
+    </div>
+    <label>Email<input id="email" type="text" autocomplete="email" maxlength="254" spellcheck="false"></label>
+    <label>Password<input id="password" type="password" autocomplete="current-password" maxlength="128"></label>
+    <p class="hint" id="pw-hint" hidden>At least 8 characters. We email you a link to verify your address.</p>
+    <p class="msg" id="msg" role="status"></p>
+    <button class="btn btn-primary wide" id="submit" type="button">Sign in</button>
+    <div class="links">
+      <button class="link" id="forgot" type="button">Forgot password?</button>
+      <button class="link" id="skip" type="button">Continue without an account</button>
+    </div>
+  </main>
+  <script src="zentro://assets/common.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>
