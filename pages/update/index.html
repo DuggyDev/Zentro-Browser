@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src zentro:; style-src zentro:; img-src zentro: data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Update needed - Zentro</title>
+  <link rel="stylesheet" href="zentro://assets/base.css">
+  <link rel="stylesheet" href="update.css">
+</head>
+<body>
+  <main class="box">
+    <img src="zentro://assets/logo.png" alt="" width="84" height="84">
+    <h1 id="title">You need to update the app</h1>
+    <p class="lead" id="lead">A newer version of Zentro Browser is available. Update now and Zentro restarts by itself in a minute.</p>
+    <div class="vers">
+      <div><span>Your version</span><b id="cur">-</b></div>
+      <div class="arrow">&rarr;</div>
+      <div><span>Latest version</span><b id="new" class="hi">-</b></div>
+    </div>
+    <div class="progress" id="progress" hidden><i id="fill"></i></div>
+    <button class="btn btn-primary wide" id="install" type="button">Update now</button>
+    <button class="btn" id="download" type="button">Open download page</button>
+    <button class="btn btn-quiet" id="quit" type="button">Close Zentro</button>
+    <p class="msg" id="msg" role="status"></p>
+  </main>
+  <script src="zentro://assets/common.js"></script>
+  <script src="update.js"></script>
+</body>
+</html>

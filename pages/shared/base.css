@@ -1,0 +1,125 @@
+/* Zentro design tokens. Obsidian and charcoal surfaces, one accent (deep red by default). */
+:root {
+  --bg: #09090b; --surface: #121216; --surface-2: #18181d; --surface-3: #202027;
+  --line: #26262d; --line-hi: #3a3a44;
+  --text: #ececf0; --muted: #8e8e9a; --faint: #5d5d68;
+  --accent: #e11d2e; --accent-hi: #ff3b4d; --accent-soft: rgba(225, 29, 46, 0.16);
+  --ok: #4cc38a; --warn: #e3a23b;
+  --font: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  --display: "Segoe UI Variable Display", "Segoe UI Semibold", "Segoe UI", system-ui, sans-serif;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f4f4f6; --surface: #ffffff; --surface-2: #ececf0; --surface-3: #e2e2e8;
+    --line: #dcdce2; --line-hi: #bdbdc8; --text: #18181b; --muted: #62626e; --faint: #8e8e9a;
+    --accent-soft: rgba(225, 29, 46, 0.1); --ok: #1f9d68; --warn: #b9770e; color-scheme: light;
+  }
+}
+:root[data-accent="ember"] { --accent: #ff5a1f; --accent-hi: #ff7a45; --accent-soft: rgba(255, 90, 31, 0.16); }
+:root[data-accent="rose"] { --accent: #ff3d7f; --accent-hi: #ff6ba0; --accent-soft: rgba(255, 61, 127, 0.16); }
+:root[data-accent="steel"] { --accent: #7f93ad; --accent-hi: #a5b6cc; --accent-soft: rgba(127, 147, 173, 0.18); }
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; height: 100%; }
+body { background: var(--bg); color: var(--text); font: 14px/1.45 var(--font); }
+button, input, select, textarea { font: inherit; color: inherit; }
+::selection { background: var(--accent-soft); }
+:focus-visible { outline: 2px solid var(--accent-hi); outline-offset: 2px; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--surface-3); border-radius: 10px; border: 2px solid transparent; background-clip: padding-box; }
+
+.icon { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 36px; padding: 0 14px;
+  border-radius: 10px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; font-weight: 600; white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+.btn:hover { background: var(--surface-2); border-color: var(--line-hi); }
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-primary { background: linear-gradient(180deg, var(--accent-hi), var(--accent)); border-color: transparent; color: #fff; }
+.btn-primary:hover { filter: brightness(1.08); background: linear-gradient(180deg, var(--accent-hi), var(--accent)); }
+.btn-danger:hover { border-color: var(--accent); color: var(--accent-hi); }
+.btn-quiet { border-color: transparent; background: transparent; }
+input[type="text"], input[type="password"], input[type="search"], input[type="url"], select, textarea {
+  height: 36px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); outline: 0;
+}
+textarea { height: auto; padding: 8px 12px; resize: vertical; }
+input[type="text"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="url"]:focus, select:focus, textarea:focus { border-color: var(--accent-hi); }
+
+.switch { position: relative; display: inline-block; width: 44px; height: 24px; flex: none; }
+.switch input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; z-index: 1; }
+.switch i { position: absolute; inset: 0; border-radius: 99px; background: var(--surface-3); transition: background 0.18s; }
+.switch i::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #cfcfd6; transition: transform 0.18s; }
+.switch input:checked + i { background: var(--accent); }
+.switch input:checked + i::after { transform: translateX(20px); background: #fff; }
+.switch input:focus-visible + i { outline: 2px solid var(--accent-hi); outline-offset: 2px; }
+
+.avatar { display: grid; place-items: center; border-radius: 12px; color: #fff; font-weight: 650; text-transform: uppercase; flex: none; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* ------------------------------------------------------------------ motion
+   One small set of animations used everywhere. All of it switches off with Settings > Animations
+   and with the operating system's "reduce motion" setting. */
+@keyframes z-rise { from { opacity: 0; transform: translateY(12px); } }
+@keyframes z-pop { from { opacity: 0; transform: scale(0.94); } }
+@keyframes z-fade { from { opacity: 0; } }
+@keyframes z-float { 50% { transform: translateY(-6px); } }
+@keyframes z-glow { 50% { filter: drop-shadow(0 10px 38px rgba(225, 29, 46, 0.75)); } }
+@keyframes z-spin-turn { to { transform: rotate(360deg); } }
+@keyframes z-shimmer { to { background-position: -200% 0; } }
+
+.section, .card, .notice, .box, .empty { animation: z-rise 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.section:nth-child(2) { animation-delay: 0.05s; } .section:nth-child(3) { animation-delay: 0.1s; } .section:nth-child(4) { animation-delay: 0.15s; }
+.section:nth-child(5) { animation-delay: 0.2s; } .section:nth-child(n+6) { animation-delay: 0.25s; }
+.list > .item { animation: z-rise 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.list > .item:nth-child(2) { animation-delay: 0.04s; } .list > .item:nth-child(3) { animation-delay: 0.08s; } .list > .item:nth-child(4) { animation-delay: 0.12s; }
+.list > .item:nth-child(5) { animation-delay: 0.16s; } .list > .item:nth-child(6) { animation-delay: 0.2s; } .list > .item:nth-child(n+7) { animation-delay: 0.24s; }
+.toast { animation: z-pop 0.28s cubic-bezier(0.2, 0.9, 0.3, 1.2) both; }
+.box > img, .hero .logo { animation: z-float 5s ease-in-out infinite, z-glow 4s ease-in-out infinite; }
+
+.btn { transition: transform 0.12s ease, background 0.2s, border-color 0.2s, box-shadow 0.25s; }
+.btn:active:not(:disabled) { transform: scale(0.96); }
+.btn-primary:hover:not(:disabled) { box-shadow: 0 8px 26px var(--accent-soft), 0 0 0 1px var(--accent-hi) inset; transform: translateY(-1px); }
+input[type="text"], input[type="password"], input[type="search"], input[type="url"], select, textarea { transition: border-color 0.2s, box-shadow 0.25s, background 0.2s; }
+.avatar { transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.3, 1.3); }
+.item:hover > .avatar { transform: scale(1.08) rotate(-3deg); }
+
+html[data-anim="off"] *, html[data-anim="off"] *::before, html[data-anim="off"] *::after { animation: none !important; transition: none !important; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* ------------------------------------------------------------------ animated profile pictures */
+.zav { --s: 34px; position: relative; display: inline-grid; place-items: center; flex: none; width: var(--s); height: var(--s); border-radius: 50%; isolation: isolate; color: #fff; font: 700 calc(var(--s) * 0.42)/1 var(--display); }
+.zav::before, .zav::after { content: ""; position: absolute; inset: 0; border-radius: 50%; pointer-events: none; }
+.zav .face { position: absolute; inset: max(2px, calc(var(--s) * 0.08)); z-index: 1; display: grid; place-items: center; overflow: hidden; border-radius: 50%; background: radial-gradient(circle at 30% 25%, #3a0f16, #12080a); }
+.zav .face img { width: 100%; height: 100%; object-fit: cover; }
+.zav[data-style="aurora"]::before { background: conic-gradient(#ff1e3c, #ff7a45, #ff3d7f, #7f93ad, #ff1e3c); animation: z-spin-turn 4s linear infinite; }
+.zav[data-style="aurora"]::after { background: conic-gradient(#ff1e3c, #ff7a45, #ff3d7f, #7f93ad, #ff1e3c); filter: blur(calc(var(--s) * 0.18)); opacity: 0.55; z-index: -1; animation: z-spin-turn 4s linear infinite; }
+.zav[data-style="pulse"]::before { background: linear-gradient(135deg, var(--accent-hi), var(--accent)); animation: z-av-pulse 1.8s ease-out infinite; }
+@keyframes z-av-pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 60, 80, 0.7); } 100% { box-shadow: 0 0 0 calc(var(--s) * 0.3) rgba(255, 60, 80, 0); } }
+.zav[data-style="orbit"]::before { border: 1.5px solid var(--line-hi); }
+.zav[data-style="orbit"]::after { background: radial-gradient(circle at 50% calc(var(--s) * 0.06), #fff 0 calc(var(--s) * 0.07), var(--accent-hi) calc(var(--s) * 0.08), transparent calc(var(--s) * 0.13)); animation: z-spin-turn 2.4s linear infinite; z-index: 2; }
+.zav[data-style="flow"]::before { background: linear-gradient(120deg, #ff1e3c, #ff7a45, #ff3d7f, #ff1e3c, #ff7a45); background-size: 300% 100%; animation: z-av-flow 3s linear infinite; }
+@keyframes z-av-flow { to { background-position: -300% 0; } }
+.zav[data-style="sparkle"]::before { background: linear-gradient(135deg, var(--accent), #5c0d18); }
+.zav[data-style="sparkle"]::after { z-index: 2; background: radial-gradient(circle at 20% 25%, #fff 0 1.5px, transparent 2.5px), radial-gradient(circle at 80% 30%, #fff 0 1px, transparent 2px), radial-gradient(circle at 70% 80%, #fff 0 1.5px, transparent 2.5px), radial-gradient(circle at 25% 78%, #fff 0 1px, transparent 2px); animation: z-av-twinkle 1.6s ease-in-out infinite; }
+@keyframes z-av-twinkle { 50% { opacity: 0.2; transform: scale(1.08) rotate(8deg); } }
+
+/* ------------------------------------------------------------------ site logos + page motion */
+.site-logo { display: inline-grid; place-items: center; flex: none; overflow: hidden; border-radius: 7px; }
+.site-logo .avatar { box-shadow: none; }
+.site-logo.has-logo { background: #f4f4f6; padding: 2px; box-sizing: border-box; }
+.site-logo.has-logo img { width: 100%; height: 100%; object-fit: contain; border-radius: 4px; }
+body { animation: z-fade 0.35s ease both; }
+.set { transition: background 0.18s; }
+.set:hover { background: rgba(255, 255, 255, 0.015); }
+.seg button { transition: background 0.18s, color 0.18s, transform 0.12s; }
+.seg button:active { transform: scale(0.95); }
+.switch i, .switch i::after { transition: background 0.22s, transform 0.22s cubic-bezier(0.2, 0.9, 0.3, 1.25), border-color 0.22s; }
+.dot { transition: transform 0.18s cubic-bezier(0.2, 0.9, 0.3, 1.4), box-shadow 0.2s; }
+.dot:hover { transform: scale(1.18); }
+.nav a { transition: background 0.18s, color 0.18s, transform 0.18s; }
+.nav a:hover { transform: translateX(3px); }
+html[data-anim="off"] *, html[data-anim="off"] *::before, html[data-anim="off"] *::after { animation: none !important; transition: none !important; }

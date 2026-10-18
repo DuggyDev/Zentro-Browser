@@ -1,0 +1,22 @@
+body { display: grid; place-items: center; overflow-y: auto; background: radial-gradient(900px 500px at 50% -10%, rgba(225, 29, 46, 0.22), transparent 60%), var(--bg); }
+.box { width: 100%; max-width: 380px; padding: 24px 24px 28px; display: grid; gap: 10px; justify-items: stretch; text-align: center; }
+.box > img { justify-self: center; filter: drop-shadow(0 6px 20px rgba(225, 29, 46, 0.45)); }
+h1 { margin: 6px 0 0; font: 650 24px/1.2 var(--display); }
+.lead { margin: 0 0 8px; color: var(--muted); }
+label { display: grid; gap: 4px; text-align: left; color: var(--muted); font-size: 12.5px; }
+label input { height: 40px; font-size: 14px; color: var(--text); }
+.wide { height: 42px; width: 100%; }
+.google { height: 42px; width: 100%; background: #fff; color: #1f1f1f; border-color: #fff; }
+.google:hover { background: #f1f1f1; border-color: #f1f1f1; }
+.google .g { font: 700 17px/1 Arial, sans-serif; color: #4285f4; }
+.or { display: flex; align-items: center; gap: 10px; color: var(--faint); font-size: 12px; margin: 4px 0; }
+.or::before, .or::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.tabs { display: grid; grid-template-columns: 1fr 1fr; padding: 3px; border-radius: 11px; background: var(--surface-2); border: 1px solid var(--line); }
+.tabs button { height: 32px; border: 0; border-radius: 8px; background: transparent; color: var(--muted); cursor: pointer; font-weight: 600; }
+.tabs button[aria-selected="true"] { background: var(--accent-soft); color: var(--text); box-shadow: inset 0 0 0 1px var(--accent); }
+.hint { margin: 0; color: var(--muted); font-size: 12px; text-align: left; }
+.msg { margin: 0; min-height: 18px; font-size: 12.5px; text-align: left; color: var(--accent-hi); }
+.msg.ok { color: var(--ok); }
+.links { display: flex; justify-content: space-between; gap: 8px; margin-top: 2px; }
+.link { border: 0; background: none; color: var(--muted); cursor: pointer; font-size: 12.5px; padding: 4px 0; }
+.link:hover { color: var(--text); text-decoration: underline; }
