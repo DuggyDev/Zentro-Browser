@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="media-src zentro:; default-src 'none'; script-src zentro:; style-src zentro:; img-src zentro: data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Zentro</title>
+  <link rel="stylesheet" href="zentro://assets/base.css">
+  <link rel="stylesheet" href="manage.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="nav" id="nav">
+      <div class="brand" id="brand" role="link" tabindex="0" title="Your Zentro account"><img src="zentro://assets/logo.png" alt="" width="34" height="34"><strong>Zentro</strong></div>
+      <a href="zentro://account/" data-page="account"></a>
+      <a href="zentro://school/" data-page="school"></a>
+      <a href="zentro://chat/" data-page="chat"></a>
+      <a href="zentro://settings/" data-page="settings"></a>
+      <a href="zentro://bookmarks/" data-page="bookmarks"></a>
+      <a href="zentro://history/" data-page="history"></a>
+      <a href="zentro://downloads/" data-page="downloads"></a>
+      <a href="zentro://collections/" data-page="collections"></a>
+      <a href="zentro://extensions/" data-page="extensions"></a>
+    </aside>
+    <main class="content">
+      <header class="head"><h1 id="title"></h1><div class="head-actions" id="head-actions"></div></header>
+      <div id="view"></div>
+    </main>
+  </div>
+  <div class="toasts" id="toasts"></div>
+  <script src="zentro://assets/common.js"></script>
+  <script src="manage.js"></script>
+  <script src="view-lists.js"></script>
+  <script src="view-settings.js"></script>
+  <script src="view-account.js"></script>
+  <script src="view-school.js"></script>
+  <script src="view-chat.js"></script>
+  <script src="boot.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="media-src zentro:; default-src 'none'; script-src zentro:; style-src zentro:; img-src zentro: https: http: data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Reading mode</title>
+  <link rel="stylesheet" href="zentro://assets/base.css">
+  <link rel="stylesheet" href="reader.css">
+</head>
+<body>
+  <header class="bar">
+    <strong>Reading mode</strong>
+    <span class="grow"></span>
+    <button class="btn" id="smaller" type="button" aria-label="Smaller text">A−</button>
+    <button class="btn" id="bigger" type="button" aria-label="Larger text">A+</button>
+    <button class="btn" id="original" type="button">Open original page</button>
+  </header>
+  <article class="page" id="article" aria-live="polite"><p class="muted">Loading…</p></article>
+  <script src="zentro://assets/common.js"></script>
+  <script src="reader.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="media-src zentro:; default-src 'none'; script-src zentro:; style-src zentro:; img-src zentro: data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>AI</title>
+  <link rel="stylesheet" href="zentro://assets/base.css">
+  <link rel="stylesheet" href="ai.css">
+</head>
+<body class="aibar">
+  <header class="bar" id="bar">
+    <div class="grip" id="grip" title="Drag to move" aria-label="Drag to move"><i></i><i></i><i></i></div>
+    <div class="provs" id="provs" role="tablist" aria-label="AI assistant"></div>
+    <span class="dot" id="dot" title="Loading"></span>
+    <div class="share" id="share">
+      <button class="tbtn" id="share-btn" type="button" title="Share what you see with the AI" aria-label="Share what you see" aria-expanded="false"></button>
+      <div class="menu" id="share-menu" hidden>
+        <button type="button" data-kind="page"><b>This page</b><span>Puts the page text in the message box</span></button>
+        <button type="button" data-kind="selection"><b>My selection</b><span>Only the text you selected</span></button>
+        <button type="button" data-kind="screenshot"><b>Screenshot</b><span>Pastes a picture of the page</span></button>
+      </div>
+    </div>
+    <button class="tbtn" id="login" type="button" title="Log in with Google" aria-label="Log in with Google"></button>
+    <button class="tbtn" id="fix" type="button" title="Repair sign-in (clears this assistant's saved login)" aria-label="Repair sign-in"></button>
+    <button class="tbtn" id="size" type="button" title="Change size" aria-label="Change size"></button>
+    <button class="tbtn" id="new" type="button" title="New chat" aria-label="New chat"></button>
+    <button class="tbtn" id="close" type="button" title="Close (Ctrl+Shift+A)" aria-label="Close"></button>
+  </header>
+  <div class="toast" id="msg" hidden role="status"></div>
+  <script src="zentro://assets/common.js"></script>
+  <script src="ai.js"></script>
+</body>
+</html>

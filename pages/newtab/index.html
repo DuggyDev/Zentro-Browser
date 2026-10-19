@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="media-src zentro:; default-src 'none'; script-src zentro:; style-src zentro:; img-src zentro: data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>New tab</title>
+  <link rel="stylesheet" href="zentro://assets/base.css">
+  <link rel="stylesheet" href="newtab.css">
+</head>
+<body class="bg-ember">
+  <div id="bgshade" aria-hidden="true" hidden></div>
+  <video id="bgvideo" preload="auto" muted loop playsinline aria-hidden="true" hidden></video>
+  <main class="stage">
+    <header class="hero">
+      <div class="logo-wrap">
+        <img class="logo" id="logo" title="Your Zentro account" src="zentro://assets/logo.png" alt="" width="84" height="84">
+        <button class="logo-btn" id="logo-edit" type="button" title="Change the logo (photo or GIF)" aria-label="Change the logo"></button>
+        <button class="logo-btn logo-reset" id="logo-reset" type="button" title="Back to the Zentro logo" aria-label="Back to the Zentro logo" hidden></button>
+      </div>
+      <h1 class="wordmark">Zentro</h1>
+      <div class="clock" id="clock" aria-live="off"></div>
+      <div class="date" id="date"></div>
+    </header>
+
+    <div class="search" id="search">
+      <svg class="icon" id="search-icon" viewBox="0 0 24 24" aria-hidden="true"></svg>
+      <input id="q" type="text" autocomplete="off" spellcheck="false" aria-label="Search or enter address" placeholder="Search the web or enter an address">
+    </div>
+
+    <section class="dial" id="dial" aria-label="Speed dial"></section>
+
+    <section class="recent" id="recent-wrap" hidden>
+      <h2>Recently visited</h2>
+      <div class="chips" id="recent"></div>
+    </section>
+
+    <nav class="quick" aria-label="Quick links">
+      <button type="button" data-go="zentro://bookmarks/" id="ql-bookmarks"><svg class="icon" aria-hidden="true"></svg>Bookmarks</button>
+      <button type="button" data-go="zentro://downloads/" id="ql-downloads"><svg class="icon" aria-hidden="true"></svg>Downloads</button>
+      <button type="button" data-go="zentro://history/" id="ql-history"><svg class="icon" aria-hidden="true"></svg>History</button>
+      <button type="button" data-go="zentro://settings/" id="ql-settings"><svg class="icon" aria-hidden="true"></svg>Settings</button>
+    </nav>
+
+    <aside class="stats" id="stats" hidden>
+      <svg class="icon" id="stats-icon" viewBox="0 0 24 24" aria-hidden="true"></svg>
+      <span id="stats-text"></span>
+    </aside>
+  </main>
+
+  <button class="customize" id="customize" type="button"><svg class="icon" id="cust-icon" viewBox="0 0 24 24" aria-hidden="true"></svg>Customize</button>
+  <div class="drawer" id="drawer" hidden role="dialog" aria-label="Customize new tab">
+    <h2>Customize</h2>
+    <div class="group">
+      <div class="label">Background</div>
+      <div class="swatches" id="swatches"></div>
+      <div class="label" id="uploads-label" hidden>Your backgrounds</div>
+      <div class="swatches" id="uploads"></div>
+      <button class="btn" id="pick-wallpaper" type="button">Upload image or video…</button>
+      <p class="hint">PNG, JPG or WEBP, up to 15 MB each. You can also drop an image anywhere on this page.</p>
+    </div>
+    <label class="toggle"><span>Show recently visited sites</span><span class="switch"><input type="checkbox" id="t-recent" role="switch"><i></i></span></label>
+    <label class="toggle"><span>Show Zentro Shield statistics</span><span class="switch"><input type="checkbox" id="t-stats" role="switch"><i></i></span></label>
+    <div class="group">
+      <div class="label">Accent colour</div>
+      <div class="swatches" id="accents"></div>
+    </div>
+    <button class="btn" id="drawer-close" type="button">Done</button>
+  </div>
+
+  <div class="modal" id="modal" hidden>
+    <form class="dialog" id="tile-form" role="dialog" aria-label="Shortcut">
+      <h2 id="tile-heading">Add shortcut</h2>
+      <label>Name<input type="text" id="tile-title" maxlength="60" required></label>
+      <label>Address<input type="text" id="tile-url" maxlength="2048" placeholder="https://example.com" required></label>
+      <p class="error" id="tile-error" hidden></p>
+      <div class="actions"><button class="btn" id="tile-cancel" type="button">Cancel</button><button class="btn btn-primary" id="tile-save" type="button">Save</button></div>
+    </form>
+  </div>
+
+  <div class="toasts" id="toasts"></div>
+  <script src="zentro://assets/common.js"></script>
+  <script src="newtab.js"></script>
+</body>
+</html>
