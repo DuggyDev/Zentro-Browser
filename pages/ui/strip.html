@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src zentro:; style-src zentro:; img-src zentro: https: http: data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Zentro tabs</title>
+  <link rel="stylesheet" href="zentro://assets/base.css">
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="tabsview">
+  <div class="tv-wrap" id="wrap">
+    <div class="strip tv-bottom" id="hstrip" hidden>
+      <div class="tabs" id="htabs"></div>
+      <button class="tbtn new-tab" id="hnew" type="button" title="New tab (Ctrl+T)" aria-label="New tab"></button>
+    </div>
+    <section class="vtabs tv-right" id="vtabs" aria-label="Tabs" hidden>
+      <div class="vtabs-head"><span>Tabs</span><button class="tbtn" id="vnew" type="button" title="New tab (Ctrl+T)" aria-label="New tab"></button></div>
+      <div class="vtabs-list" id="vlist"></div>
+    </section>
+  </div>
+  <script src="zentro://assets/common.js"></script>
+  <script src="tabs.js"></script>
+  <script src="strip.js"></script>
+</body>
+</html>

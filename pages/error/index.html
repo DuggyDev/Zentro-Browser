@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src zentro:; style-src zentro:; img-src zentro: data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Can't open page</title>
+  <link rel="stylesheet" href="zentro://assets/base.css">
+  <link rel="stylesheet" href="error.css">
+</head>
+<body>
+  <main class="box">
+    <img src="zentro://assets/logo.png" alt="" width="64" height="64">
+    <h1 id="title">This page can’t be opened</h1>
+    <p id="text" class="lead"></p>
+    <p class="addr" id="addr"></p>
+    <ul id="tips"></ul>
+    <div class="actions"><button class="btn btn-primary" id="retry" type="button">Try again</button></div>
+    <p class="code" id="code"></p>
+  </main>
+  <script src="zentro://assets/common.js"></script>
+  <script src="error.js"></script>
+</body>
+</html>
